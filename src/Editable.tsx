@@ -8,7 +8,7 @@ import ActionButtons from './ActionButtons'
 
 export type EditProps<T> = {
   className: string;
-  data: T | null;
+  data: T;
   errors: any;
   onKeyDown: (e: KeyboardEvent) => void;
   onChange: (row: T) => void;
@@ -17,7 +17,7 @@ export type EditProps<T> = {
 export type ViewProps<T> = {
   key: React.Key;
   data: T;
-  onClick?: (() => void) | undefined;
+  onClick: (() => void);
   innerRef?: ((element: HTMLElement | null) => void) | undefined;
   draggableProps?: DraggableProvidedDraggableProps | undefined;
   dragHandleProps?: DraggableProvidedDragHandleProps | null | undefined;
@@ -29,9 +29,9 @@ export type EmptyRowProps = {
 
 export type EditableProps<T> = {
   onChange: (rows: T[]) => void;
-  data: T[]; // PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: T[];
   addToBeginning?: boolean;
-  validate: any;
+  validate?: any;
   colSpan?: number;
   dragAndDrop?: boolean;
   readOnly?: boolean;
@@ -213,7 +213,7 @@ export default class Editable<T> extends PureComponent<EditableProps<T>, Editabl
     }
 
     const rows = data.map((item, index) => {
-      if (editing === item) {
+      if (edited && editing === item) {
         return (
           <Fragment key={getKey(item)}>
             <Edit
@@ -291,7 +291,7 @@ export default class Editable<T> extends PureComponent<EditableProps<T>, Editabl
         key={getKey(item)}
         data={item}
         isDragging={snapshot.isDragging}
-        onClick={readOnly ? undefined : () => this.setState({ editing: item, edited: cloneObject(item) })} />
+        onClick={readOnly ? noop : () => this.setState({ editing: item, edited: cloneObject(item) })} />
     )
   }
 
