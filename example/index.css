@@ -1,0 +1,245 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Raleway, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #636b6f;
+  background-color: #f5f8fa;
+}
+
+#app {
+  width: 960px;
+  margin: 0 auto;
+  margin-bottom: 22px;
+  background-color: #fff;
+  border: 1px solid #d3e0e9;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  padding: 15px;
+}
+
+tbody.editing {
+  pointer-events: none;
+}
+tbody.editing > tr {
+  opacity: .5;
+}
+tbody.editing > tr.active,
+tbody.editing > tr.row-actions {
+  opacity: 1;
+  pointer-events: auto;
+  height: 0;
+}
+tbody.editing > tr.row-actions > td {
+  padding: 0;
+  border: 0;
+  position: relative;
+  z-index: 1;
+}
+.editable-actions-outer-container {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.editable-actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 150px;
+  background: #f5f5f5;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-top: 0;
+  pointer-events: auto;
+}
+.table-editable tbody tr {
+  height: 53px;
+}
+.table-editable tbody tr td {
+  vertical-align: middle;
+}
+.btn-trash {
+  color: #777;
+}
+.btn-trash:focus,
+.btn-trash:hover {
+  color: #d9534f;
+}
+.txt-right {
+  text-align: right;
+}
+.txt-center {
+  text-align: center;
+}
+.table-editable caption h4 {
+  float: left;
+}
+.table-editable caption button {
+  float: right;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td {
+  padding: 10px;
+}
+
+textarea.form-control {
+  width: 100%;
+  height: 80px;
+}
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  border-radius: 4px;
+  user-select: none;
+}
+.pull-right {
+  float: right !important;
+}
+.btn-default {
+  color: #636b6f;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+.table-striped>tbody>tr:nth-of-type(even) {
+  background-color: #ffffff;
+}
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+  border-top: 1px solid #ddd;
+}
+
+.form-control {
+  width: 100%;
+  height: 36px;
+  padding: 6px 12px;
+  background-color: #fff;
+  border: 1px solid #ccd0d2;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.form-control:focus {
+  border-color: #98cbe8;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(152, 203, 232, .6);
+}
+
+.table-hover>tbody>tr:hover,
+.table>tbody>tr.active>td,
+.table>tbody>tr.active>th,
+.table>tbody>tr>td.active,
+.table>tbody>tr>th.active,
+.table>tfoot>tr.active>td,
+.table>tfoot>tr.active>th,
+.table>tfoot>tr>td.active,
+.table>tfoot>tr>th.active,
+.table>thead>tr.active>td,
+.table>thead>tr.active>th,
+.table>thead>tr>td.active,
+.table>thead>tr>th.active {
+  background-color: #f5f5f5;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(./fonts/glyphicons-halflings-regular.eot?f4769f9bdb7466be65088239c12046d1);
+  src: url(./fonts/glyphicons-halflings-regular.eot?f4769f9bdb7466be65088239c12046d1?#iefix) format("embedded-opentype"),
+  url(./fonts/glyphicons-halflings-regular.woff2?448c34a56d699c29117adc64c43affeb) format("woff2"),
+  url(./fonts/glyphicons-halflings-regular.woff?fa2772327f55d8198301fdb8bcfc8158) format("woff"),
+  url(./fonts/glyphicons-halflings-regular.ttf?e18bbf611f2a2e43afc071aa2f4e1512) format("truetype"),
+  url(./fonts/glyphicons-halflings-regular.svg?89889688147bd7575d6327160d64e760#glyphicons_halflingsregular) format("svg")
+}
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.glyphicon-trash:before {
+  content: "\e020"
+}
+
+.glyphicon-ok:before {
+  content: "\e013"
+}
+
+.glyphicon-remove:before {
+  content: "\e014"
+}
+
+
+.btn-link {
+  color: #3097D1;
+  font-weight: 400;
+  border-radius: 0;
+}
+.btn-trash {
+  color: #777;
+}
+
+.btn-link, .btn-link:active, .btn-link:focus, .btn-link:hover {
+  border-color: transparent;
+}
+.btn-link, .btn-link.active, .btn-link:active, .btn-link[disabled], fieldset[disabled] .btn-link {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.btn-link:focus, .btn-link:hover {
+  color: #216a94;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+.btn-trash:focus, .btn-trash:hover {
+  color: #d9534f;
+}
+tr.dragging, tr[tabindex]:focus, tr[tabindex]:focus-within {
+  box-shadow: inset 3px 0 0 0 #3097d1;
+}
